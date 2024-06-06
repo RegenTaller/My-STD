@@ -54,16 +54,30 @@ string** stringarr(int r, int c) {
 double** doublearr(int r, int c) {
 
     // количество столбцов
-    double** doubl{new double * [r] {} };  // выделяем память под двухмерный массив
+    //double** doubl{new double * [r] {} };  // выделяем память под двухмерный массив
     // выделяем память для вложенных массивов
 
-    for (int i{}; i < r; i++) {
+    //for (int i{}; i < r; i++) {
 
-        doubl[i] = new double[c]{};
+    //    doubl[i] = new double[c]{};
+
+    //}
+
+    //return doubl;
+    double** m = new double* [r];
+
+    m[0] = new double[r * c];
+
+    for (size_t i = 1; i != r; ++i) {
+
+        m[i] = m[i - 1] + c;
 
     }
 
-    return doubl;
+    cout << "Array " << r << "x" << c << " is created" << endl;
+
+    //return numbers;
+    return m;
 }
 
 int** arrin(int** ar, int r, int c) {

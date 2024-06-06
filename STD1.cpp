@@ -1,4 +1,4 @@
-﻿#include "pch.h"
+#include "pch.h"
 #include "framework.h"
 #include <iostream>
 #include <string>
@@ -10,16 +10,29 @@ using namespace std;
 int** intarr(int r, int c) {
 
     // количество столбцов
-    int** numbers{ new int* [r] {} };  // выделяем память под двухмерный массив
+    //int** numbers{ new int* [r] {} };  // выделяем память под двухмерный массив
     // выделяем память для вложенных массивов
 
-    for (int i{}; i < r; i++) {
+    //for (int i{}; i < r; i++) {
 
-        numbers[i] = new int[c] {};
+    //    numbers[i] = new int[c] {};
 
+    //}
+
+    int** m = new int* [r];
+
+    m[0] = new int [r * c];
+
+    for (size_t i = 1; i != r; ++i) {
+    
+        m[i] = m[i - 1] + c;
+    
     }
 
-    return numbers;
+    cout << "Array " << r << "x" << c << " is created" << endl;
+
+    //return numbers;
+    return m;
 }
     
 string** stringarr(int r, int c) {
